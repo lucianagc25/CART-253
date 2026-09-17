@@ -24,13 +24,27 @@ function setup() {
 function draw() {
 
     background(0,20,50);
-    fill(255,0,0);
+   
+    //red circle
+    ellipse(200,200, 50, 50);
     stroke(255,255,255);
-    
-    ellipse(100,100, 20, 20);
+    strokeWeight(4);
+    fill(255,0,0);
 
-    //rect(20,250,150,50);
-    //rect(20,50,150,50);
+    //yellow circle
+    ellipse(100,100,50, 50);
+    fill(45,225,0);
+    strokeWeight(1);
+
+    strokeWeight(1);
+    rect(400,50,10,40);
+    fill(255,255,0);
+    
+    
+    rect(20,180,80,10);
+
+    stroke(255,255,255);
+    line(30,20,85,75);
 
 
 }
