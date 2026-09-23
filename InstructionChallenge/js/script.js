@@ -31,14 +31,6 @@ function draw() {
 
   cone3();
 
-
-
-
-
-
-  
-
-
 }
 
 
