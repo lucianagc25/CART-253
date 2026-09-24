@@ -1,5 +1,5 @@
 
-![mycreation](IMAGES/abstract.jpg)
+![mycreation](IMAGES/abstract.jpeg)
 
 CODIFICANDO-ANDO
 
