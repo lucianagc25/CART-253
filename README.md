@@ -1,7 +1,7 @@
 
-![alt text](IMAGES/banner.jpg)
+![mycreation](IMAGES/abstract.jpg)
 
-Show off
+CODIFICANDO-ANDO
 
 
 The website will be used to portray and collect all my prototyping work. 
