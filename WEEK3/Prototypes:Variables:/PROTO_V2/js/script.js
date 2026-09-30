@@ -28,7 +28,7 @@ let lilbug2 = {
     x: 100,
     y: 190,
     size: 30,
-    speedX: 11,
+    speedX: 0.5,
     speedY: -2,
 
     fill: {
@@ -43,7 +43,7 @@ let lilbug3 = {
     x: 80,
     y: 280,
     size: 20,
-    speedX: 4,
+    speedX: 2.1,
     speedY: -2,
 
     fill: {
@@ -58,8 +58,8 @@ let lilbug4 = {
     x: 430,
     y: 180,
     size: 23,
-    speedX: 3,
-    speedY: -5,
+    speedX: 2,
+    speedY: -0.1,
 
     fill: {
     r: 166,
@@ -84,6 +84,36 @@ let lilbug5 = {
 
 }
 
+let lilbigbug = {
+    x: 300,
+    y: 200,
+    width:15,
+    height: 50,
+    speedX: 1,
+    speedY: -1,
+
+    fill: {
+    r: 247,
+    g: 244,
+    b: 166,
+    }
+}
+
+let lilbigbug2 = {
+    x: 300,
+    y: 200,
+    width:15,
+    height: 50,
+    speedX: -1,
+    speedY: -2,
+
+    fill: {
+    r: 247,
+    g: 244,
+    b: 166,
+    }
+}
+
 
 
 
@@ -96,6 +126,7 @@ let backgroundColor = {r: 60, g: 12, b: 79};
 function setup() {
      createCanvas(600, 400);
       background(backgroundColor.r, backgroundColor.g, backgroundColor.b);
+   
 }
 
 
@@ -108,6 +139,8 @@ function draw() {
   backgroundColor.r = backgroundColor.r +0.1
   backgroundColor.g = backgroundColor.g +0.003
   backgroundColor.b = backgroundColor.b -0.1
+
+
 
 
   push();
@@ -155,6 +188,23 @@ function draw() {
   lilbug5.x = lilbug5.x + lilbug5.speedX;
   lilbug5.y = lilbug5.y + lilbug5.speedY;
   
+  push();
+  noStroke();
+  fill(lilbigbug.fill.r, lilbigbug.fill.g, lilbigbug.fill.b);
+  rect(lilbigbug.x, lilbigbug.y, lilbigbug.width, lilbigbug.height);
+  pop();
+
+  lilbigbug.x = lilbigbug.x + lilbigbug.speedX;
+  lilbigbug.y = lilbigbug.y + lilbigbug.speedY;
+
+  push();
+  noStroke();
+  fill(lilbigbug2.fill.r, lilbigbug2.fill.g, lilbigbug2.fill.b);
+  rect(lilbigbug2.x, lilbigbug2.y, lilbigbug2.width, lilbigbug2.height);
+  pop();
+
+  lilbigbug2.x = lilbigbug2.x + lilbigbug2.speedX;
+  lilbigbug2.y = lilbigbug2.y + lilbigbug2.speedY;
 
 
 }
