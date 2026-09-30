@@ -1,5 +1,5 @@
 /**
- Variables Prototype #1 
+ Variables Prototype #2
  * Luciana Garcia Cadillo
  * 
  * Learning how to use variables. 
