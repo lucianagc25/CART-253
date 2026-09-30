@@ -14,6 +14,8 @@ WEEK 2
 
 WEEK 3
 
+Prototyping: Variables
+
 ![week3_img1](IMAGES/week3_img1.jpeg)
 
 ![week3_img2](IMAGES/week3_img2.jpeg)
