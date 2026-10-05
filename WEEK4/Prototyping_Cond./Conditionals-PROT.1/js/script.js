@@ -13,7 +13,7 @@ const bolita = {
   x: 200,
   y: 200,
   size: 100,
-  fill: "#e7bc2f"
+  fill: "#cbb6ec"
 };
 
 const cubito = {
@@ -30,19 +30,21 @@ const cubito = {
 function setup() {
 
     createCanvas(400, 400);
+    background("#d6b005");
 
 }
 
 
 function draw() {
-  background("#d6b005");
+  if (mouseY < 200) {
+    moveBolita();
+    drawBolita();
+  }
 
-  moveBolita(); 
-  moveCubito();
-  
-//draw- para que aparezcan
-  drawBolita();
-  drawCubito();
+  else if (mouseY > 200) {
+    moveCubito();
+    drawCubito();
+  }
  
 }
 
@@ -73,7 +75,7 @@ function drawCubito() {
 }
 
 function mouseDragged() {
-    
+
 }
 
 
