@@ -30,7 +30,7 @@ let oldX = 200;
 let oldY = 200;
 
 /**
- * OH LOOK I DIDN'T DESCRIBE SETUP!!
+ Bolita and Cubito are two shapes that will follow the mouse when it is dragged. Once you click and drag the mouse, the shape will follow the mouse and copy the shape in a different position. If the mouse is in the top half of the canvas, the shape will be a circle, and if it is in the bottom half, it will be a square.
 */
 function setup() {
 
