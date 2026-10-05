@@ -9,20 +9,25 @@
 
 "use strict";
 
+
 const bolita = {
   x: 200,
   y: 200,
-  size: 100,
+  size: 50,
   fill: "#cbb6ec"
 };
 
 const cubito = {
     x: 200,
     y:100,
-    size: 100,
-    fill: "#e3bb"
+    size: 50,
+    fill: "rgba(116, 19, 87, 0.73)"
 
 };
+
+
+let oldX = 200;
+let oldY = 200;
 
 /**
  * OH LOOK I DIDN'T DESCRIBE SETUP!!
@@ -30,12 +35,16 @@ const cubito = {
 function setup() {
 
     createCanvas(400, 400);
-    background("#d6b005");
+    
 
 }
 
 
 function draw() {
+
+  background("#d6b005");
+
+
   if (mouseY < 200) {
     moveBolita();
     drawBolita();
@@ -63,6 +72,7 @@ function drawBolita() {
   noStroke();
   fill(bolita.fill);
   ellipse(bolita.x, bolita.y, bolita.size);
+  ellipse(oldX, oldY, bolita.size);
   pop();
 }
 
@@ -71,10 +81,14 @@ function drawCubito() {
   noStroke();
   fill(cubito.fill);
   rect(cubito.x, cubito.y, cubito.size);
+  rect(oldX, oldY, cubito.size);
   pop();
 }
 
 function mouseDragged() {
+    //this makes the shape follow the mouse but with a little delay
+    oldX = mouseX -60;
+    oldY = mouseY;
 
 }
 
