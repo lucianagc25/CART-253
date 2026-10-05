@@ -74,6 +74,7 @@ function draw() {
    // )
 
     background(0);
+    
     push();
     //body
     fill(creature.currentFill);
