@@ -60,7 +60,7 @@ function draw() {
         creature.currentFill = creature.fillStates.neutral;
     }
 
-    //if(mouseIsPressed === true){
+    ///if(mouseIsPressed === true){
    //     creature.currentFill = creature.fillStates.angry
     //}
 
