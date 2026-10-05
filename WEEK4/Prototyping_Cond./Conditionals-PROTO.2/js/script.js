@@ -7,7 +7,7 @@
 
 "use strict";
 
-//Night and Day
+//My sun and stars objects
 
 const sol = {
   x: 200,
