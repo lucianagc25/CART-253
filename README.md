@@ -21,3 +21,13 @@ Prototyping: Variables
 ![week3_img2](IMAGES/week3_img2.jpeg)
 
 ![week3_img3](IMAGES/week3_img3.jpeg)
+
+WEEK 4
+
+Conditionals 
+
+![week4_img1](IMAGES/week4_img1.jpeg)
+
+![week4_img2](IMAGES/week4_img2.jpeg)
+
+![week4_img3](IMAGES/week4_img3.jpeg)
