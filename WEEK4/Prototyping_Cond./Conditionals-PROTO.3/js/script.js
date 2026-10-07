@@ -96,7 +96,7 @@ function draw() {
     fill(cubito1.fill);
     rect(cubito1.X, cubito1.Y, cubito1.Size, cubito1.Size)
    
-    if (turnRight == false) {
+    if (turnRight === false) {
     cubito1.X = cubito1.X - 2
 
     }
@@ -112,7 +112,7 @@ function draw() {
     fill(cubito2.fill);
     rect(cubito2.X, cubito2.Y, cubito2.Size, cubito2.Size)
 
-    if (turnRight == false) {
+    if (turnRight === false) {
     cubito2.X = cubito2.X - 2
 
     }
@@ -130,7 +130,7 @@ function draw() {
     fill(cubito3.fill);
     rect(cubito3.X, cubito3.Y, cubito3.Size, cubito3.Size)
 
-    if (turnRight == false) {
+    if (turnRight === false) {
     cubito3.X = cubito3.X - 2
 
     }
@@ -147,7 +147,7 @@ function draw() {
     fill(cubito4.fill);
     rect(cubito4.X, cubito4.Y, cubito4.Size, cubito4.Size)
 
-    if (turnRight == false) {
+    if (turnRight === false) {
     cubito4.X = cubito4.X - 2
 
     }
@@ -164,7 +164,7 @@ function draw() {
     fill(cubito5.fill);
     rect(cubito5.X, cubito5.Y, cubito5.Size, cubito5.Size)
 
-    if (turnRight == false) {
+    if (turnRight === false) {
     cubito5.X = cubito5.X - 2
 
     }
@@ -179,7 +179,7 @@ function draw() {
 }
 
 function mousePressed() {
-    if (turnRight == false) {
+    if (turnRight === false) {
         turnRight = true;
     }
     else {

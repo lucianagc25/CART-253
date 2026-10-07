@@ -49,19 +49,35 @@ function moveBall() {
     mouseTriggerBall.x + mouseTriggerBall.speed;
 }
 
+function keyPressed(event) {
+    console.log(event);
+    mouseTriggerBall.speed = 2;
+
+
+function keyReleased() {
+    mouseTriggerBall.speed = 0;
+
+}
+}
+
+
+
+
+
+
 //function mousePressed() {
     //console.log(mouseX, mouseY);//helps me to know whats happening with the variables
    //fill(random(0, 255), random(0, 255), random(0, 255));
    // ellipse(mouseX, mouseY, mouseTriggerBall.size);
 //}
 
-function mousePressed() {
-    mouseTriggerBall.speed = 2;
-}
+//function mousePressed() {
+  //  mouseTriggerBall.speed = 2;
+//}
 
-function mouseReleased() {
-    mouseTriggerBall.speed = 0;//esto hace que pare
-}
+//function mouseReleased() {
+  //  mouseTriggerBall.speed = 0;//esto hace que pare
+//}
 
 //function mouseWheel() {
    // mouseTriggerBall.size = mouseTriggerBall.size + 5;
@@ -69,10 +85,10 @@ function mouseReleased() {
 //}
 
 function mouseWheel(event) {
-    //console.log(event)
+    console.log(event)
     mouseTriggerBall.size = mouseTriggerBall.size - event.delta;
 }
 
-function mouseDragged() {
-    mouseTriggerBall.x = mouseX;
-}
+//function mouseDragged() {
+   // mouseTriggerBall.x = mouseX;
+//}
