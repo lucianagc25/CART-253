@@ -63,7 +63,16 @@ function mouseReleased() {
     mouseTriggerBall.speed = 0;//esto hace que pare
 }
 
-function mouseWheel() {
-    mouseTriggerBall.size = mouseTriggerBall.size + 5;
-    mouseTriggerBall.size = mouseTriggerBall.size - 5;
+//function mouseWheel() {
+   // mouseTriggerBall.size = mouseTriggerBall.size + 5;
+   // mouseTriggerBall.size = mouseTriggerBall.size - 5;
+//}
+
+function mouseWheel(event) {
+    //console.log(event)
+    mouseTriggerBall.size = mouseTriggerBall.size - event.delta;
+}
+
+function mouseDragged() {
+    mouseTriggerBall.x = mouseX;
 }
