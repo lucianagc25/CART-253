@@ -14,12 +14,22 @@ let score = 0;
 // Is the game over?
 let gameOver = false;
 
+
+
 /**
  * Create the canvas
  */
 function setup() {
   createCanvas(400, 400);
+
+  window.addEventListener("offline", (lose) => {
+    console.log("You are offline!");
+   })
+
+   document.addEventListener("visibilitychange", 
+    lose)
 }
+
 
 /**
  * Update the score and display the UI
@@ -61,3 +71,34 @@ function displayScore() {
   text(floor(score), width/2, height/2);
   pop();
 }
+
+function keyPressed() {
+   
+
+   if(gameOver === false) {
+    
+    lose()
+
+   }
+
+   else if(gameOver === true){
+    gameOver = false
+   }
+
+}
+
+function lose() {
+    gameOver = true;
+
+ 
+}
+
+
+function mousePressed() {
+    if(gameOver === false) {
+        lose()
+    }
+
+}
+
+   
