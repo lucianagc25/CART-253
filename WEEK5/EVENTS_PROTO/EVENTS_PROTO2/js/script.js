@@ -10,6 +10,8 @@
 
 let score = 0;
 
+let gameOver = false;
+
 let Ball = {
     x: 30,
     y: 100,
@@ -52,7 +54,8 @@ let Ball6 = {
     fill: "#84f38a"
 }
 
-//no ball selected
+//remembers which ball the user selected
+//0 means no ball is selected
 let selectBall = 0;
 
 
@@ -74,7 +77,10 @@ let Barsket = {
 function setup() {
     createCanvas(600,400);
 
+ window.addEventListener("offline", lose);
 
+document.addEventListener("visibilitychange", 
+    lose)
 
 }
 
@@ -83,7 +89,13 @@ function setup() {
  * OOPS I DIDN'T DESCRIBE WHAT MY DRAW DOES!
 */
 function draw() {
-    background ("rgb(162, 162, 16)")
+    background ("rgb(162, 162, 16)");
+
+       if (!gameOver) {
+    // Score increases relatively slowly
+    score += 0.05;
+  }
+  displayUI();
 
 
 
@@ -96,26 +108,11 @@ function draw() {
     drawBarsket()
 
 
-    if (!gameOver) {
-    // Score increases relatively slowly
-    score += 0.05;
-  }
-  displayUI();
+ 
 
 }
 
 
-function displayUI() {
-  if (gameOver) {
-    push();
-    textSize(48);
-    textStyle(BOLD);
-    textAlign(CENTER, CENTER);
-    text("You lose!", width/2, height/3);
-    pop();
-  }
-  displayScore();
-}
 /**
  * Displays the obstable
  */
@@ -175,6 +172,34 @@ function drawBarsket() {
   fill(Barsket.fill);
   rect(Barsket.x, Barsket.y, Barsket.width, Barsket.height);
   pop();
+}
+
+
+function displayUI() {
+  if (gameOver) {
+    push();
+    textSize(48);
+    textStyle(BOLD);
+    textAlign(CENTER, CENTER);
+    text("You lose!", width/2, height/3);
+    pop();
+  }
+  displayScore();
+}
+
+function displayScore() {
+  push();
+  textSize(48);
+  textStyle(BOLD);
+  textAlign(CENTER, CENTER);
+  text(floor(score), width/2, height/2);
+  pop();
+}
+
+function lose() {
+
+    gameOver = true;
+
 }
 
 function mousePressed() {
@@ -246,4 +271,6 @@ function mouseDragged()  {
 
    
 }
+
+
 
