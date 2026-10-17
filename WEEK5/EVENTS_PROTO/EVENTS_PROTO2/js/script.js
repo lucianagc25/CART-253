@@ -8,56 +8,68 @@
 
 "use strict";
 
-const Obstacle = {
+
+
+let Obstacle = {
     x: 200,
     y: 250,
-    width: 50,
-    height: 10,
+    size: 50,
     fill: "#e7bc2f"
 }
 
-const Obstacle2 = {
+let Obstacle2 = {
     x: 100,
     y: 100,
-    width: 50,
-    height: 10,
+    size: 50,
     fill: "#e7bc2f"
 }
 
-const Obstacle3 = {
+let Obstacle3 = {
     x: 300,
     y: 100,
-    width: 50,
-    height: 10,
-    fill: "#e7bc2f"
-}
-
-const Obstacle4 = {
-    x: 400,
-    y: 250,
-    width: 50,
-    height: 10,
-    fill: "#e7bc2f"
-}
-
-
-let mouseTriggerBall =  {
-    x: 0,
-    y: 200,
     size: 50,
-    speed: 0,
-    fillColor: {
-        r: 100,
-        g: 0,
-        b: 255
-    }
+    fill: "#e7bc2f"
+}
+
+let Obstacle4 = {
+    x: 300,
+    y: 100,
+    size: 50,
+    fill: "#e7bc2f"
+}
+
+let Obstacle5 = {
+    x: 300,
+    y: 100,
+    size: 50,
+    fill: "#e7bc2f"
+}
+
+let Obstacle6 = {
+    x: 300,
+    y: 100,
+    size: 50,
+    fill: "#e7bc2f"
+}
+
+
+let Barsket = {
+    x: 500,
+    y: 0,
+    width: 10,
+    height: 900,
+    fill: "#e7bc2f"
+}
+
+
+
 
 
 /**
  * Game sort of set up
 */
 function setup() {
-    createCanvas(600,400)
+    createCanvas(600,400);
 
 }
 
@@ -68,10 +80,14 @@ function setup() {
 function draw() {
     background ("rgb(116, 116, 11)")
 
+
+
     drawObstacle()
     drawObstacle2()
     drawObstacle3()
     drawObstacle4()
+    drawObstacle5()
+    drawBarsket()
 
 
 }
@@ -79,35 +95,56 @@ function draw() {
 /**
  * Displays the obstable
  */
-function drawObstacle() {
+function drawBall() {
   push();
   noStroke();
-  fill(Obstacle.fill);
-  rect(Obstacle.x, Obstacle.y, Obstacle.width, Obstacle.height);
+  fill(Ball.fill);
+  ellipse(Ball.x, Ball.y, Ball.size);
   pop();
 }
 
-function drawObstacle2() {
+function drawBall2() {
   push();
   noStroke();
-  fill(Obstacle2.fill);
-  rect(Obstacle2.x, Obstacle2.y, Obstacle2.width, Obstacle2.height);
+  fill(Ball2.fill);
+  ellipse(Ball2.x, Ball2.y, Ball2.size);
   pop();
 }
 
-function drawObstacle3() {
+function drawBall3() {
   push();
   noStroke();
-  fill(Obstacle3.fill);
-  rect(Obstacle3.x, Obstacle3.y, Obstacle3.width, Obstacle3.height);
+  fill(Ball3.fill);
+  ellipse(Ball3.x, Ball3.y, Ball3.size);
   pop();
 }
 
-function drawObstacle4() {
+function drawBall4() {
   push();
   noStroke();
-  fill(Obstacle4.fill);
-  rect(Obstacle4.x, Obstacle4.y, Obstacle4.width, Obstacle4.height);
+  fill(Ball4.fill);
+  ellipse(Ball4.x, Ball4.y, Ball4.size);
   pop();
+}
+
+function drawBall5() {
+  push();
+  noStroke();
+  fill(Ball5.fill);
+  ellipse(Ball5.x, Ball5.y, Ball5.size);
+  pop();
+}
+
+function drawBarsket() {
+  push();
+  noStroke();
+  fill(Barsket.fill);
+  rect(Barsket.x, Barsket.y, Barsket.width, Barsket.height);
+  pop();
+}
+
+function mousePressed() {
+
+    if (dis(mouseX,mouseY))
 }
 
