@@ -8,9 +8,13 @@
 
 "use strict";
 
-let score = 0;
+let timeLeft = 10;
+
+let startTime = 0;
 
 let gameOver = false;
+
+
 
 let Ball = {
     x: 30,
@@ -77,10 +81,8 @@ let Barsket = {
 function setup() {
     createCanvas(600,400);
 
- window.addEventListener("offline", lose);
-
-document.addEventListener("visibilitychange", 
-    lose)
+//makes it remember when the game starts
+ startTime = millis();
 
 }
 
@@ -91,11 +93,30 @@ document.addEventListener("visibilitychange",
 function draw() {
     background ("rgb(162, 162, 16)");
 
-       if (!gameOver) {
-    // Score increases relatively slowly
-    score += 0.05;
-  }
-  displayUI();
+    //counts down from 10 while the game is on
+    if (!gameOver) {
+        timeLeft = 10 - floor((millis() - startTime) / 1000)
+    }
+
+    if (timeLeft <=0) {
+        timeLeft = 0;
+        gameOver = true;
+    }
+
+
+
+    //show the timer
+    textSize(48);
+    textStyle(BOLD);
+    textAlign(CENTER, CENTER);
+    fill("white");
+    text("Time: " + (0,timeLeft),width / 2, 40 )
+
+    //shows loosing 
+    if (gameOver) {
+        textSize(40)
+        text("You lose!", width/2, height/2);
+    }
 
 
 
@@ -175,32 +196,7 @@ function drawBarsket() {
 }
 
 
-function displayUI() {
-  if (gameOver) {
-    push();
-    textSize(48);
-    textStyle(BOLD);
-    textAlign(CENTER, CENTER);
-    text("You lose!", width/2, height/3);
-    pop();
-  }
-  displayScore();
-}
 
-function displayScore() {
-  push();
-  textSize(48);
-  textStyle(BOLD);
-  textAlign(CENTER, CENTER);
-  text(floor(score), width/2, height/2);
-  pop();
-}
-
-function lose() {
-
-    gameOver = true;
-
-}
 
 function mousePressed() {
 
@@ -237,6 +233,10 @@ function mousePressed() {
 }
 
 function mouseDragged()  {
+
+    if (gameOver) {
+        return;
+    }
 
     if (selectBall === 1) {
         Ball.x = mouseX;
