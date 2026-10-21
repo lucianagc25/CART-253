@@ -31,3 +31,16 @@ Conditionals
 ![week4_img2](IMAGES/week4_img2.jpeg)
 
 ![week4_img3](IMAGES/week4_img3.jpeg)
+
+WEEK 5
+
+Events
+
+![week5_img1](IMAGES/week5_img1.jpeg)
+
+![week5_img2](IMAGES/week5_img2.jpeg)
+
+![week5_img3](IMAGES/week5_img3.jpeg)
+
+![week5_img3.1](IMAGES/week5_img3.1.jpeg)
+
