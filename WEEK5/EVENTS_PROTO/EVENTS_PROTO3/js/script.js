@@ -37,19 +37,18 @@ function draw() {
         fill(255,0,255);
     }
 
-    for (let i = 0; i < 100; i++){
-        stroke(0);
-        strokeWeight(2);
-        noFill();
-
-        circleSize = 800 - i * 8;
-
-        circle(
-            width / 2,
-            height / 2,
-            circleSize
-        );
+    if (mouseIsPressed){
+        circleSize = mouseX;
+        circle(circleX,circleY, circleSize)
     }
+    else{
+        circleSize = mouseX;
+        circle(circleX, circleY, circleSize);
+    }
+
+    circleY = circleY + 1;
+    circleX = circleX + 1;
+
 
    
 
