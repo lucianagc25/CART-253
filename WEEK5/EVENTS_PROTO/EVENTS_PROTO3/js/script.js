@@ -24,27 +24,41 @@ let circle3Y = 9;
  * Base lime green canvas 
 */
 function setup() {
-    createCanvas(windowWidth, windowHeight)
+    createCanvas(windowWidth, windowHeight);
+
+    
 
 }
 
 
 /**
- * Playfull circles that change color 
+ * Playfull interactive circle press 
 */
 function draw() {
     background("#ee3");
 
+    //changes the background when the key is pressed 
+    if(keyIsPressed) {
+        background("rgb(7, 7, 7)");
+    }
+
+    else{
+        background("#ee3")
+    }
+
+
+
     //Circle1
     //this changes the fill color whe an key is pressed
     if (keyIsPressed === true){
-        fill("rgba(92, 227, 254, 0.97)");
+        fill("rgba(185, 255, 45, 0.97)");
     }
     
     else{
         fill(255,0,255);
     }
 
+    //changes the circle size based on the mouse's X position
     if (mouseIsPressed){
         circleSize = mouseX;
         circle(circleX,circleY, circleSize)
@@ -54,6 +68,8 @@ function draw() {
         circle(circleX, circleY, circleSize);
     }
 
+
+    //moves circle one pixel to the right annd down 
     circleY = circleY + 1;
     circleX = circleX + 1;
 
@@ -61,7 +77,7 @@ function draw() {
 
     //Circle2
      if (keyIsPressed === true){
-        fill("rgba(255, 157, 9, 0.97)");
+        fill("rgba(107, 238, 255, 0.97)");
     }
     
     else{
@@ -77,12 +93,14 @@ function draw() {
         circle(circle2X, circle2Y, circle2Size);
     }
 
-    circle2Y = circle2Y + 1;
-    circle2X = circle2X + 1;
+    circle2Y = circle2Y + 2;
+    circle2X = circle2X + 2;
+
+
 
     //Circle3
      if (keyIsPressed === true){
-        fill("rgba(111, 228, 98, 0.97)");
+        fill("rgb(175, 39, 248)");
     }
     
     else{
@@ -98,37 +116,31 @@ function draw() {
         circle(circle3X, circle3Y, circle3Size);
     }
 
-    circle3Y = circle3Y + 1;
-    circle3X = circle3X + 1;
+    circle3Y = circle3Y + 3;
+    circle3X = circle3X + 3;
 
 
-    
-    
-    
-    
     
     
     //restarts when it reaches the edge 
+    // || means OR- the circle restarts when it reaches the right edge or botton edge 
     if (circleX > width || circleY > height) {
-        circleX = 30;
-        circleY = 8;
+        circleX = 0;
+        circleY = 0;
     }
 
     if (circle2X > width || circle2Y > height) {
-        circle2X = 70;
-        circle2Y = 100;
+        circle2X = 300;
+        circle2Y = 10;
     }
 
     if (circle3X > width || circle3Y > height) {
-        circle3X = 400;
-        circle3Y = 9;
+        circle3X = 900;
+        circle3Y = 50;
     }
 
 
 
 
-
-
-   
 
 }
