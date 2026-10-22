@@ -27,6 +27,16 @@ const ball = {
     }
 };
 
+const ball2 = {
+    x: 100,
+    y: 60,
+    width: 10,
+    height: 10,
+    velocity: {
+        x: 4,
+        y: 9
+    }
+};
 
 
 // Our paddle
@@ -35,6 +45,15 @@ const paddle = {
     y: 280,
     width: 80,
     height: 10
+};
+
+const paddle2 = {
+    x: 300,
+    y: 35,
+    width: 80,
+    height: 10
+
+
 };
 
 /**
@@ -52,12 +71,22 @@ function draw() {
     background("#87ceeb");
 
     movePaddle(paddle);
+    movePaddle2(paddle2)
+
     moveBall(ball);
+    moveBall(ball2);
 
     handleBounce(ball, paddle);
+    handleBounce(ball,paddle2);
+    handleBounce(ball2,paddle);
+    handleBounce(ball2,paddle2);
 
     drawPaddle(paddle);
+    drawPaddle(paddle2);
+
     drawBall(ball);
+    drawBall(ball2);
+    
 }
 
 /**
@@ -68,6 +97,14 @@ function movePaddle(paddle) {
     paddle.x = mouseX;
 
 }
+
+function movePaddle2(paddle2) {
+
+    paddle2.x = width- mouseX;
+
+}
+
+
 
 /**
  * Moves the ball passed in as a parameter
@@ -93,9 +130,12 @@ function handleBounce(ball, paddle) {
     if(checkOverlap(ball, paddle)){
 
         ball.velocity.y = ball.velocity.y * -1;
+        
     }
-
+    
 }
+
+
 
 /**
  * Draws the specified paddle on the canvas
@@ -108,6 +148,7 @@ function drawPaddle(paddle) {
     rect(paddle.x, paddle.y, paddle.width, paddle.height);
     pop();
 }
+
 
 /**
  * Draws the specified ball on the canvas
