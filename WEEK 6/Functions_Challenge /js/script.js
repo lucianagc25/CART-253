@@ -27,6 +27,8 @@ const ball = {
     }
 };
 
+
+
 // Our paddle
 const paddle = {
     x: 300,
@@ -63,6 +65,8 @@ function draw() {
  */
 function movePaddle(paddle) {
 
+    paddle.x = mouseX;
+
 }
 
 /**
@@ -70,12 +74,26 @@ function movePaddle(paddle) {
  */
 function moveBall(ball) {
 
+    //move the ball horizontally/horizontally
+    //add its horizontal velocity to its x position / y position 
+    ball.x = ball.x + ball.velocity.x;
+
+    ball.y = ball.y + ball.velocity.y-5;
+
+//toma la posicion actual de la pelota en X y añade su velocidad horizontal 
+
+
 }
 
 /**
  * Bounces the provided ball off the provided paddle
  */
 function handleBounce(ball, paddle) {
+    
+    if(checkOverlap(ball, paddle)){
+
+        ball.velocity.y = ball.velocity.y * -1;
+    }
 
 }
 
