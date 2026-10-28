@@ -10,11 +10,11 @@
 
 "use strict";
 
-const rings= 15;
+const rings = 15;
 
 
 function setup() {
-    createCanvas(500, 500)
+    createCanvas(400, 400)
 
 }
 
@@ -37,10 +37,28 @@ function draw() {
      // The position is a bit complex here because we want to offset
      // each subsequent ring toward the mouse on x and y, making them each equidistance from eachother
      // It's math.    
-     
+     const x = width/2 + ((rings - i) * dx/rings);
+     const y = height/2 +((rings-i) * dy/rings);
+
+     const shade = map(i, rings, 1, 50, 200);
+
+     // The diameter of this ring based on i, with each subsequent
+     // ring being evenly divided into the overall width of the shape
+     const diameter = (width/ rings) * i;
+
+     push();
+     noStoke();
+     fill("rgba(212, 235, 120, 0.93)");
+     ellipse(x + 2, y + 2, diameter);
+     pop();
 
 
-
+     //Draws the rings 
+     push();
+     noStoke();
+     fill("rgba(226, 96, 213, 0.93)");
+     ellipse(x, y, diameter);
+     pop();
 
      }
 
