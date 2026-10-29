@@ -111,6 +111,21 @@ function setup() {
 function draw() {
     background("rgba(97, 132, 228, 0.93)");
 
+    moveLine(line)
+    moveLine2(line2)
+    moveLine3(line3)
+    moveLine4(line4)
+
+    moveLine5(line5)
+    moveLine6(line6)
+    moveLine7(line7)
+    moveLine8(line8)
+    moveLine9(line9)
+    moveLine10(line10)
+    moveLine11(line11)
+    moveLine12(line12)
+
+
     drawLine(line)
     drawLine(line2)
     drawLine(line3)
@@ -128,6 +143,81 @@ function draw() {
 
 }
 
+//will make the line move with the mouse
+function moveLine(line) {
+
+    line.x = mouseX;
+
+}
+
+function moveLine2(line2) {
+
+    line2.x = width - mouseX;
+
+}
+
+function moveLine3(line3) {
+
+    line3.x = width - mouseX;
+
+}
+
+function moveLine4(line4) {
+
+    line4.x = width - mouseX;
+
+}
+
+
+//bottom lines
+function moveLine5(line5) {
+
+    line5.y = mouseY;
+
+}
+
+function moveLine6(line6) {
+
+    line6.y = mouseY;
+
+}
+
+function moveLine7(line7) {
+
+    line7.y = mouseY;
+
+}
+
+function moveLine8(line8) {
+
+    line8.y = mouseY;
+
+}
+
+function moveLine9(line9) {
+
+    line9.y = mouseY;
+
+}
+
+function moveLine10(line10) {
+
+    line10.y = mouseY;
+
+}
+
+function moveLine11(line11) {
+
+    line11.y = mouseY;
+
+}
+
+function moveLine12(line12) {
+
+    line12.y = mouseY;
+
+}
+
 function drawLine(line) {
     push();
     noStroke();
@@ -138,16 +228,5 @@ function drawLine(line) {
 }
 
 
-//will make the line move with the mouse
-function moveLine(line) {
 
-    line.x = mouse.X;
-
-}
-
-function moveLine2(line2) {
-
-    line2.x = width - mouseX;
-    
-}
 
