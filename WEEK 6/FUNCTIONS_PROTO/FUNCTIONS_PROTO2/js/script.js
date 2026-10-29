@@ -6,11 +6,12 @@
  * This prototype explores functions with return values 
  */
 
+// The little bug is fying aound and once you press the mouse it becomes angry, big, and purple. 
+
 "use strict";
 
 let bug1;
-//let bug2;
-//let bug3;
+
 
 
 function setup() {
@@ -19,8 +20,7 @@ function setup() {
 
     //Creates the bugs /random (width)- chooses a random horizontal position  /random(height)-chooses a random vertical position
     bug1 = createBug(random (width), random(height));
-    //bug2 = createBug();
-    //bug3 = createBug();
+    
 
 
 }
@@ -53,23 +53,34 @@ function draw() {
     bounceBug(bug1)
     drawBug(bug1)
     changeBugSize(bug1)
+    changeBugFill(bug1)
 
     if (mouseIsPressed) {
 
-        changeBugSize(bug1, 100)
+        changeBugSize(bug1, 100);
+        changeBugFill(bug1, "#c73ab7")
 
     }
     else {
-        changeBugSize(bug1,45)
+        changeBugSize(bug1,45);
+        changeBugFill( bug1, "rgb(119, 230, 228)")
     }
 
 
 
 }
 
-function changeBugSize(bug, newSize, newFill){
+function changeBugSize(bug, newSize){
 
     bug.size = newSize;
+    
+
+}
+
+function changeBugFill(bug, newFill){
+
+    bug.fill = newFill;
+    
 
 }
 
