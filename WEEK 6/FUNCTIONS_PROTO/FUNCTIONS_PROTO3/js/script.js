@@ -27,6 +27,7 @@ function draw() {
 
     fill("#fff");
     textAlign(CENTER, CENTER);
+    textFont("Courier New")
     textSize(90);
     text(mood, width /2, height / 2);
 
@@ -61,7 +62,7 @@ function chooseMoodColor(selectedMood){
     }
 
 }
-function keyIsPressed() {
+function keyPressed() {
     mood= chooseMood();
-    moodColo
+    moodColor = chooseMoodColor(mood)
 }
