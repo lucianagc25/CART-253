@@ -23,8 +23,9 @@ function setup() {
 */
 function draw() {
     background(moodColor);
+    
 
-    fill(30);
+    fill("#fff");
     textAlign(CENTER, CENTER);
     textSize(90);
     text(mood, width /2, height / 2);
@@ -32,5 +33,35 @@ function draw() {
 }
 
 function chooseMood() {
-    random(["SLEEPY", "ANGRY", "HAPPY", "STRESSED", "ANXIOUS", "SILLY"])
+    return random(["SLEEPY", "ANGRY", "HAPPY", "STRESSED", "ANXIOUS", "SILLY"])
+}
+
+function chooseMoodColor(selectedMood){
+
+    if (selectedMood === "SLEEPY") {
+        return "rgb(7, 19, 155)"
+    }
+     else if (selectedMood === "ANGRY"){
+        return "#ff2929"
+    }
+     else if (selectedMood === "HAPPY") {
+        return "rgb(243, 218, 75)"
+    }
+     else if (selectedMood === "STRESSED"){
+        return "#7909b5"
+    }
+     else if (selectedMood === "ANXIOUS"){
+        return "#b50987"
+    }
+     else if (selectedMood === "SILLY"){
+        return "#ff9a2d"
+    }
+    else {
+        return "#000000"
+    }
+
+}
+function keyIsPressed() {
+    mood= chooseMood();
+    moodColo
 }
