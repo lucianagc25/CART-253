@@ -2,10 +2,9 @@
  * Prototyping Functions 
  * Luciana Garcia Cadillo
  * 
- * Reference-https://editor.p5js.org/pippinbarr/sketches/7KfK3pK9i
  * 
- * HOW EMBARRASSING! I HAVE NO DESCRIPTION OF MY PROJECT!
- * PLEASE REMOVE A GRADE FROM MY WORK IF IT'S GRADED!
+ * 
+ * Interactive vertical and horizontal lines with mouse movement.
  */
 
 "use strict";
@@ -145,26 +144,26 @@ function draw() {
 
 //will make the line move with the mouse
 function moveLine(line) {
-
+//this tells the line to follow the mouse horizontally
     line.x = mouseX;
 
 }
 
 function moveLine2(line2) {
-
-    line2.x = width - mouseX;
+//this makes it move in the opposite direction
+    line2.x = width - mouseX +3;
 
 }
 
 function moveLine3(line3) {
 
-    line3.x = width - mouseX;
+    line3.x = mouseX - 2;
 
 }
 
 function moveLine4(line4) {
 
-    line4.x = width - mouseX;
+    line4.x = mouseX +3;
 
 }
 
@@ -178,25 +177,25 @@ function moveLine5(line5) {
 
 function moveLine6(line6) {
 
-    line6.y = mouseY;
+    line6.y = width - mouseY + 5;
 
 }
 
 function moveLine7(line7) {
 
-    line7.y = mouseY;
+    line7.y = width - mouseY - 4  ;
 
 }
 
 function moveLine8(line8) {
 
-    line8.y = mouseY;
+    line8.y = width - mouseY - 2;
 
 }
 
 function moveLine9(line9) {
 
-    line9.y = mouseY;
+    line9.y = mouseY ;
 
 }
 
