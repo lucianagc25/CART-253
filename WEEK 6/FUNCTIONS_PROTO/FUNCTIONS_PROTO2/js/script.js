@@ -17,19 +17,19 @@ function setup() {
 
     createCanvas (600, 600);
 
-    //Creates the bugs
-    bug1 = createBug();
+    //Creates the bugs /random (width)- chooses a random horizontal position  /random(height)-chooses a random vertical position
+    bug1 = createBug(random (width), random(height));
     //bug2 = createBug();
     //bug3 = createBug();
 
 
 }
-
-function createBug(){
+//x,y & x:x , y:y es para que el bug pueda aparecer en random positions
+function createBug(x,y){
     const newBug = {
-        x:300,
-        y:300,
-        size: 30,
+        x:x,
+        y:y,
+        size: 45,
         fill: "rgb(119, 230, 228)",
         //movement 
         velocity: {
@@ -52,8 +52,24 @@ function draw() {
     moveBug(bug1)
     bounceBug(bug1)
     drawBug(bug1)
+    changeBugSize(bug1)
+
+    if (mouseIsPressed) {
+
+        changeBugSize(bug1, 100)
+
+    }
+    else {
+        changeBugSize(bug1,45)
+    }
 
 
+
+}
+
+function changeBugSize(bug, newSize, newFill){
+
+    bug.size = newSize;
 
 }
 
