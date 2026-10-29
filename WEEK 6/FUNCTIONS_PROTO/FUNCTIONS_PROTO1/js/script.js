@@ -115,15 +115,14 @@ function draw() {
     moveLine3(line3)
     moveLine4(line4)
 
-    moveLine5(line5)
+    moveVerticalLines(line5)
     moveLine6(line6)
     moveLine7(line7)
     moveLine8(line8)
-    moveLine9(line9)
-    moveLine10(line10)
-    moveLine11(line11)
-    moveLine12(line12)
-
+    moveVerticalLines(line9)
+    moveVerticalLines(line10)
+    moveVerticalLines(line11)
+    moveVerticalLines(line12)
 
     drawLine(line)
     drawLine(line2)
@@ -169,10 +168,9 @@ function moveLine4(line4) {
 
 
 //bottom lines
-function moveLine5(line5) {
+function moveVerticalLines(line) {
 
-    line5.y = mouseY;
-
+    line.y = mouseY;
 }
 
 function moveLine6(line6) {
@@ -193,29 +191,7 @@ function moveLine8(line8) {
 
 }
 
-function moveLine9(line9) {
 
-    line9.y = mouseY ;
-
-}
-
-function moveLine10(line10) {
-
-    line10.y = mouseY;
-
-}
-
-function moveLine11(line11) {
-
-    line11.y = mouseY;
-
-}
-
-function moveLine12(line12) {
-
-    line12.y = mouseY;
-
-}
 
 function drawLine(line) {
     push();
