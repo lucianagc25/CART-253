@@ -44,3 +44,14 @@ Events
 
 ![week5_img3.1](IMAGES/week5_img3.1.jpeg)
 
+WEEK 6
+
+Functions
+
+![week6_img1](IMAGES/week6_img1.jpeg)
+
+![week6_img2](IMAGES/week6_img2.jpeg)
+
+![week6_img3](IMAGES/week6_img3.jpeg)
+
+
