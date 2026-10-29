@@ -2,9 +2,8 @@
  * Prototype #3- Mood Popping
  * Luciana Garcia Cadillo
  * 
- * HOW EMBARRASSING! I HAVE NO DESCRIPTION OF MY PROJECT!
- * PLEASE REMOVE A GRADE FROM MY WORK IF IT'S GRADED!
  */
+ //You can press a key to generate a random mood and its matching background colour./
 
 "use strict";
 
