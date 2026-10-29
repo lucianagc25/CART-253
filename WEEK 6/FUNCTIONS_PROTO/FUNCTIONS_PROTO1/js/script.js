@@ -69,30 +69,30 @@ let line8 = {
 }
 
 let line9 = {
-    x : 10,
+    x : 180,
     y: 200,
-    width: 30,
+    width: 50,
     height: 300,
 }
 
 let line10 = {
-    x : 50,
+    x : 250,
     y: 210,
     width: 20,
     height: 300,
 }
 
 let line11 = {
-    x : 90,
+    x : 300,
     y: 190,
     width: 40,
     height: 300,
 }
 
 let line12 = {
-    x : 150,
-    y: 300,
-    width: 10,
+    x : 370,
+    y: 270,
+    width: 20,
     height: 300,
 }
 
@@ -119,6 +119,11 @@ function draw() {
     drawLine(line6)
     drawLine(line7)
     drawLine(line8)
+    drawLine(line9)
+    drawLine(line10)
+    drawLine(line11)
+    drawLine(line12)
+
 
 
 }
@@ -131,3 +136,18 @@ function drawLine(line) {
     pop();
 
 }
+
+
+//will make the line move with the mouse
+function moveLine(line) {
+
+    line.x = mouse.X;
+
+}
+
+function moveLine2(line2) {
+
+    line2.x = width - mouseX;
+    
+}
+
