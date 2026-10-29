@@ -6,6 +6,7 @@
  */
 
 let ball1 = undefined; // Will create it with createBall()
+let balls =[]
 
 /**
  * Create the canvas and the ball
@@ -47,6 +48,13 @@ function draw() {
   moveBall(ball1);
   bounceBall(ball1);
   drawBall(ball1);
+
+  for (let ball of balls){
+  moveBall(ball);
+  bounceBall(ball);
+  drawBall(ball);
+
+  }
 }
 
 /**
@@ -85,4 +93,10 @@ function drawBall(ball) {
   fill(ball.fill);
   ellipse(ball.x, ball.y, ball.size);
   pop();
+}
+
+function mousePressed() {
+    
+    balls.push(createBall());
+    
 }
