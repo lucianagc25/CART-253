@@ -8,12 +8,12 @@
 
 "use strict";
 
-let starts = [];
+let stars = [];
 
 //this is the time beween the stars falling
 const minimumStarDelay = 500;
 const maximumStarDelay = 2000;
-let startDelay = maximumStarDelay;
+let starDelay = maximumStarDelay;
 
 /**
  * OH LOOK I DIDN'T DESCRIBE SETUP!!
@@ -21,7 +21,7 @@ let startDelay = maximumStarDelay;
 function setup() {
     createCanvas(700, 400);
 
-    setTimeout(addStar, startDelay); 
+    setTimeout(addStar, starDelay); 
 
    
 }
@@ -35,5 +35,14 @@ function draw() {
 
    
 
+
+}
+
+function addStar() {
+    const star = createStar();
+    stars.push(star);//add the star to the array
+    //choose a random time between the minimum and maximum delay for the next star
+    starDelay = random(minimumStarDelay, maximumStarDelay);
+    setTimeout(addStar, starDelay);//schedule the next star
 
 }
