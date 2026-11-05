@@ -21,13 +21,18 @@ function setup() {
 function draw() {
     background("pink");
 
-    let x=0;
+    for (let i = 0; i < width; i += 50) {
+        stroke(i + 1);
+        line(i, 0, i, height);
+    }
+
+    let y=0;
     let greyValue=0; 
 
-    while (x <= width) {
+    while (y <= height) {
         stroke(greyValue);
-        line(x, 0, x, height);
-        x += 50; //this tells java x by 50 everytime the loop runs
+        line(0, y, width, y);
+        y += 50; //this tells java y by 50 everytime the loop runs
         greyValue += 25; //this tells java to increase the grey value by 25 everytime the loop runs
     }
     
