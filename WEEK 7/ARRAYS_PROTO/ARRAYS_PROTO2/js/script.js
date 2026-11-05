@@ -16,7 +16,7 @@ const maximumStarDelay = 1000;
 let starDelay = maximumStarDelay;
 
 /**
- * OH LOOK I DIDN'T DESCRIBE SETUP!!
+ * My Blue sky
 */
 function setup() {
     createCanvas(700, 400);
@@ -28,7 +28,7 @@ function setup() {
 
 
 /**
- * OOPS I DIDN'T DESCRIBE WHAT MY DRAW DOES!
+ * The stars falling from the sky, with a random delay between each star and a random size and speed for each star
 */
 function draw() {
     background('#0b033a');
