@@ -7,6 +7,7 @@
 
 "use strict";
 
+
 /**
  * Creates the canvas
  */
@@ -21,10 +22,18 @@ function setup() {
 function draw() {
     background("pink");
 
-    for (let i = 0; i < width; i += 50) {
-        stroke(i + 1);
-        line(i, 0, i, height);
+    for (let x = 0; x < width; x++) {
+        let greyValue = map(x, 0, width, 0, 255);
+
+        stroke(greyValue);
+        line(x, 0, x, height);
     }
+
+
+
+    
+
+ 
 
     let y=0;
     let greyValue=0; 
@@ -35,5 +44,17 @@ function draw() {
         y += 50; //this tells java y by 50 everytime the loop runs
         greyValue += 25; //this tells java to increase the grey value by 25 everytime the loop runs
     }
+
+    let x=0;
+    greyValue=0; 
+
+       while (x <= width) {
+        stroke(greyValue);
+        line(x, 0, x, height);
+        x += 50; //this tells java x by 50 everytime the loop runs
+        greyValue += 25; //this tells java to increase the grey value by 25 everytime the loop runs
+    }
+
+     
     
 }
