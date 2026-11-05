@@ -7,8 +7,11 @@
 
 "use strict";
 
-let clownImage = undefined;
-let xPos = 0;
+let startColor = undefined;
+let endColor = undefined;
+let gradientIndex = undefined;
+let y = undefined;
+
 
 
 /**
@@ -16,7 +19,13 @@ let xPos = 0;
 */
 async function setup() {
     createCanvas(500, 500);
-    clownImage = await loadImage('assets/images/clown.png');
+   // clownImage = await loadImage('assets/images/clown.png');
+    imageMode (CENTER);
+
+let startColor = color (255, 0, 255);
+let endColor = color (0, 255, 0);
+let gradientIndex = 0;
+let y = 0;
 
 }
 
@@ -27,9 +36,17 @@ async function setup() {
 function draw() {
     background('skyblue');
 
-    let x = 20;
-    let y = 
-    //xPos++; 
-    image(clownImage, xPos, 200, clownImage.width / 4, 50);
+    gradientIndex = 0;
+    y=0;
+    while (gradientIndex < 1) {
+    let rectColor = lerpColor(startColor, endColor, .5);
+    noStroke();
+    fill(rectColor);
+    rect(0, y, width, 5);
+    gradientIndex += 0.01;
+    //change y accordingly to the height of the rectangle 
+    y+= 5;
 
+  
+}
 }
