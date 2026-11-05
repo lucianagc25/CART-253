@@ -1,5 +1,5 @@
 /**
- * Title of Project
+ * Prototype #3 - Arrays 
  * Author Name
  * 
  * HOW EMBARRASSING! I HAVE NO DESCRIPTION OF MY PROJECT!
