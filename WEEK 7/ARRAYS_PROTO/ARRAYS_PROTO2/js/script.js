@@ -46,3 +46,22 @@ function addStar() {
     setTimeout(addStar, starDelay);//schedule the next star
 
 }
+
+function createStar() {
+    const star = {
+        x: random(0, width),
+        y: -100,
+        velocity: {
+            x: 0,
+            y: random(1, 5)
+        },
+        size: random(10, 30),
+        fill: "#82e3f0"
+
+        };
+
+        return star;
+
+    };
+
+    
