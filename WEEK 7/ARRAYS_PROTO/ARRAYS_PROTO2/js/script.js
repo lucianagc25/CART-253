@@ -11,8 +11,8 @@
 let stars = [];
 
 //this is the time beween the stars falling
-const minimumStarDelay = 500;
-const maximumStarDelay = 2000;
+const minimumStarDelay = 300;
+const maximumStarDelay = 1000;
 let starDelay = maximumStarDelay;
 
 /**
@@ -31,10 +31,12 @@ function setup() {
  * OOPS I DIDN'T DESCRIBE WHAT MY DRAW DOES!
 */
 function draw() {
-    background('#b544b7');
+    background('#0b033a');
 
-   
-
+    for (let star of stars) {
+        moveStar(star);
+        drawStar(star);
+    }
 
 }
 
@@ -47,6 +49,8 @@ function addStar() {
 
 }
 
+//Pipins code makes the delay dradually shorter, mine chooses a random time between the minimum and maximum delay for each star.
+
 function createStar() {
     const star = {
         x: random(0, width),
@@ -55,13 +59,25 @@ function createStar() {
             x: 0,
             y: random(1, 5)
         },
-        size: random(10, 30),
-        fill: "#82e3f0"
+        size: random(10, 50),
+       //fill: "#82e3f0"
 
         };
 
         return star;
 
-    };
+    }
+
+function moveStar(star) {
+    star.x += star.velocity.x;
+    star.y += star.velocity.y;
+}
+
+function drawStar(star) {
+    push();
+    textSize(star.size);
+    text("⭐", star.x, star.y)
+    pop();
+}
 
     
