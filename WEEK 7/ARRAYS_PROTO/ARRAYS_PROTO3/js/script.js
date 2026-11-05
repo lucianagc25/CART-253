@@ -41,6 +41,7 @@ function draw() {
 
     drawFood();
     drawSnake();
+    handleFoodCollision();
 
 
 
@@ -87,5 +88,20 @@ function drawSnake() {
 }
 
 function checkCollision(foodItem){
-    dist(snake.x, snake.y, foodItem.x, foodItem.y)
+    let distance = dist(snake.x, snake.y, foodItem.x, foodItem.y);
+
+    if (distance <= 20){
+        return true;
+};
+
+return false;
+
+}
+
+function handleFoodCollision() {
+    for(let foodItem of food){
+        if (checkCollision(foodItem)) {
+            food.splice(food.indexOf(foodItem), 1);
+        }
+    }
 }
