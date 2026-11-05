@@ -54,4 +54,14 @@ Functions
 
 ![week6_img3](IMAGES/week6_img3.jpeg)
 
+WEEK 7
+
+Arrays 
+
+![week6_img1](IMAGES/week7_img1.jpeg)
+
+![week6_img2](IMAGES/week7_img2.jpeg)
+
+![week6_img3](IMAGES/week7_img3.jpeg)
+
 
