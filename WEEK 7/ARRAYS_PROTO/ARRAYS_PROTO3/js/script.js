@@ -35,7 +35,14 @@ function draw() {
     snake.y = mouseY;
     snake.snakeTrail.push({x: snake.x, y: snake.y});
 
+    if (snake.snakeTrail.length>=snake.maxSnakeTrailLength){
+        snake.snakeTrail.shift();
+    }
+
     drawFood();
+    drawSnake();
+
+
 
 
 }
@@ -68,4 +75,17 @@ function drawFood() {
     }
 }
 
+function drawSnake() {
+    for (let element of snake.snakeTrail){
+    push();
+    noStroke();
+    fill("white");
+    ellipse(element.x, element.y, snake.diameter);
+    pop();
+    
+};
+}
 
+function checkCollision(foodItem){
+    dist(snake.x, snake.y, foodItem.x, foodItem.y)
+}
