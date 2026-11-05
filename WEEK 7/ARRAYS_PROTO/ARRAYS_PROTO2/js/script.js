@@ -1,6 +1,6 @@
 /**
- * Title of Project
- * Author Name
+ * Arrays Prototype 2
+ * Luciana Garcia Cadillo
  * 
  * HOW EMBARRASSING! I HAVE NO DESCRIPTION OF MY PROJECT!
  * PLEASE REMOVE A GRADE FROM MY WORK IF IT'S GRADED!
