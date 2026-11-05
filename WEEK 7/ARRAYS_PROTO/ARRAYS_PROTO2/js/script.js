@@ -2,25 +2,26 @@
  * Arrays Prototype 2
  * Luciana Garcia Cadillo
  * 
- * Bubles bubles bubles
+ * Falling stars 
+ * inspo from- https://editor.p5js.org/pippinbarr/sketches/cU8ZR2yv5
  */
 
 "use strict";
 
-let bubble = {
-    x: 100,
-    y: 100,
-    size: 50,
-    fill: '#f5f5f5',
-    
+let starts = [];
 
-}
+//this is the time beween the stars falling
+const minimumStarDelay = 500;
+const maximumStarDelay = 2000;
+let startDelay = maximumStarDelay;
 
 /**
  * OH LOOK I DIDN'T DESCRIBE SETUP!!
 */
 function setup() {
     createCanvas(700, 400);
+
+    setTimeout(addStar, startDelay); 
 
    
 }
@@ -32,23 +33,7 @@ function setup() {
 function draw() {
     background('#b544b7');
 
-     moveBubble();
-     drawBubble();
+   
 
 
-
-}
-
-
-function drawBubble(bubble) {
-    push();
-    noStroke();
-    fill(bubble.fill);
-    ellipse(bubble.x, bubble.y, bubble.size);
-    pop();
-}
-
-function moveBubble(bubble) {
-    bubble.x += bubble.velocity.x;
-    bubble.y += bubble.velocity.y;
 }
