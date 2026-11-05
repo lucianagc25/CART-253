@@ -9,6 +9,8 @@
 "use strict";
 
 const snake = {
+    x: 200,
+    y: 200,
     diameter: 20,
     maxSnakeTrailLength: 100,
     snakeTrail: [],
@@ -20,14 +22,21 @@ let food = [];
 function setup() {
     createCanvas(400, 400);
 
+    addFood();
+
 }
 
 
-/**
- * OOPS I DIDN'T DESCRIBE WHAT MY DRAW DOES!
-*/
+
 function draw() {
     background("black");
+
+    snake.x = mouseX;
+    snake.y = mouseY;
+    snake.snakeTrail.push({x: snake.x, y: snake.y});
+
+    drawFood();
+
 
 }
 
@@ -35,6 +44,9 @@ function draw() {
 function addFood() {
     const foodItem = createFood();
     food.push(foodItem);
+
+    setTimeout(addFood, 1000);
+
 }
 
 function createFood() {
@@ -55,3 +67,5 @@ function drawFood() {
         pop();
     }
 }
+
+
