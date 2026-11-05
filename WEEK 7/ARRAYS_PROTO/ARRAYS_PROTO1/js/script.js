@@ -30,34 +30,41 @@ const sol = {
 function setup() {
     createCanvas(400, 400);
 
-    stars.push(createStar(100, 100, "#221182"));
-    stars.push(createStar(300, 100, "#82116f"));
-    stars.push(createStar(100, 300, "#9bca19"));
-    stars.push(createStar(300, 300, "#9b0000"));
-    stars.push(createStar(200, 100, "#17a0c6"));
-    stars.push(createStar(200, 300, "#fa7d3e"));
+    stars.push(createStar(100, 100, "#2706e0"));
+    stars.push(createStar(300, 100, "#c712a9"));
+    stars.push(createStar(100, 300, "#b4dc45"));
+    stars.push(createStar(300, 300, "#751dc7"));
+    stars.push(createStar(200, 100, "#39bee3"));
+    stars.push(createStar(200, 300, "#d34d0a"));
 //every time I create a star, I push it into the stars array. The stars array will remember all the properties of the stars objects and will be able to use them in the draw function.
 }
 
 
+function createStar(x, y, awayFill) {
+
+    const newStar = {
+        x: x,
+        y: y,
+        size: 30,
+        fill: "#ffffff",
+        awayFill: awayFill
+    };
+
+    return newStar;
+     //it remembers the properties of the newStar object and returns it to the stars array
+}
+
+
 function draw() {
-    background("#f3f16d");
+    background("#cee7a3");
 //move tiene que ir antes de draw
     moveSol();
+    drawSol();
 
     for (let star of stars){
-        moveStar1(star);
+        moveStar(star);
+        drawStar(star);
     }
-
-    moveStar1();
-    moveStar2();
-    moveStar3();
-    moveStar4();
-    moveStar5();
-    moveStar6();
-
-    drawSol();
-    
 }
 
 function moveSol() {
@@ -65,7 +72,9 @@ function moveSol() {
     sol.y = mouseY;
 }
 
-function moveStar() {
+
+function moveStar(star) {
+
     let mousepackdis = dist(star.x, star.y, sol.x, sol.y);
 
     let overlap = mousepackdis < 80
@@ -93,8 +102,6 @@ function moveStar() {
 }
 
 
-
-
 function drawSol() {
   push();
   noStroke();
@@ -103,16 +110,12 @@ function drawSol() {
   pop();
 }
 
-
-function createStar(x, y, awayFill) {
-
-    const newStar = {
-        x: x,
-        y: y,
-        size: 20,
-        fill: "#ffffff",
-        awayFill: awayFill
-    };
-
-    return newStar; //it remembers the properties of the newStar object and returns it to the stars array
+function drawStar(star) {
+    push();
+    noStroke();
+    fill(star.fill);
+    ellipse(star.x, star.y, star.size);
+    pop();
 }
+
+
