@@ -55,6 +55,11 @@ function setup() {
         chestY.push(random(-height, 0))
     }
 
+    for (let i = 0; i < legs.length; i++) {
+        legsX.push(random(0, width - 120));
+        legsY.push(random(-height, 0))
+    }
+
     
 
 }
@@ -64,6 +69,11 @@ function setup() {
 
 function draw() {
     background('Dodgerblue')
+
+    //function calls
+    fallingImages(heads, headX, headY);
+    fallingImages(chest, chestX, chestY)
+    fallingImages(legs, legsX, legsY)
 
     
 }
@@ -78,7 +88,7 @@ function fallingImages(images, positionX, positionY) {
     let imageHeight = imageWidth * images[i].height / images[i].width;
 
     //display without stretching it 
-    image(images[i], headX[i], headY[i], imageWidth, imageHeight);
+    image(images[i], positionX[i], positionY[i], imageWidth, imageHeight);
 
     //keep the head falling until it passes the bottom 
     if (positionY[i] < height) {
@@ -89,10 +99,10 @@ function fallingImages(images, positionX, positionY) {
     else {
 
         //this resets the head above the canvas 
-        headY[i] = -headHeight;
+        positionY[i] = -imageHeight;
 
         //here is the randomness: choose a new horizontal position
-        headX[i] = random(0, width - headWidth);
+        positionX[i] = random(0, width - imageWidth);
 
     }
   }
