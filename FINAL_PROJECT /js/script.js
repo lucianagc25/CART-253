@@ -7,11 +7,17 @@ let heads = [];
 let chest = [];
 let legs = [];
 
-//variables for the falling images
-let chestY = 0;
-let legsY = 0;
+//arrays for the falling images
 let headX = [];
 let headY = [];
+
+let chestX = [];
+let chestY = [];
+
+let legsX = [];
+let legsY = [];
+
+
 
 
 
@@ -38,10 +44,18 @@ function preload() {
 function setup() {
     createCanvas(windowWidth, windowHeight);
 
+    //loop + array- random starting position 
     for (let i = 0; i < heads.length; i++) {
         headX.push(random(0, width - 120));
         headY.push(random(-height, 0))
     }
+
+    for (let i = 0; i < chest.length; i++) {
+        chestX.push(random(0, width - 120));
+        chestY.push(random(-height, 0))
+    }
+
+    
 
 }
 
@@ -51,19 +65,25 @@ function setup() {
 function draw() {
     background('Dodgerblue')
 
-    for(let i = 0; i < heads.length; i++) {
+    
+}
+
+//"fallingImages()"- one reusable function. displays and moves the images (using parameneters)
+function fallingImages(images, positionX, positionY) {
+
+    for(let i = 0; i < images.length; i++) {
 
     //se the head w nd calculate it proportional height
-    let headWidth = 120;
-    let headHeight = headWidth * heads[i].height / heads[i].width;
+    let imageWidth = 120;
+    let imageHeight = imageWidth * images[i].height / images[i].width;
 
     //display without stretching it 
-    image(heads[i], headX[i], headY[i], headWidth, headHeight);
+    image(images[i], headX[i], headY[i], imageWidth, imageHeight);
 
     //keep the head falling until it passes the bottom 
-    if (headY[i] < height) {
+    if (positionY[i] < height) {
         
-        headY[i] = headY[i] + 2;
+        positionY[i] = positionY[i] + 2;
     }
 
     else {
@@ -75,9 +95,6 @@ function draw() {
         headX[i] = random(0, width - headWidth);
 
     }
-    
+  }
 
 }
-
-}
-
