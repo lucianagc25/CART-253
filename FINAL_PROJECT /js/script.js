@@ -17,7 +17,7 @@ let chestY = [];
 let legsX = [];
 let legsY = [];
 
-
+let assemblyCard;
 
 
 
@@ -35,6 +35,8 @@ function preload() {
     for (let i = 1; i <= 7; i++){
         legs.push (loadImage("assets/images/legs/leg" + i + ".png"));
     }
+
+    assemblyCard = loadImage("assets/images/canvas/canvas.png");
 }
 
 
@@ -74,6 +76,14 @@ function draw() {
     fallingImages(heads, headX, headY);
     fallingImages(chest, chestX, chestY)
     fallingImages(legs, legsX, legsY)
+
+    let cardWidth = 350;
+    let cardHeight = cardWidth * assemblyCard.height / assemblyCard.width; 
+
+    let cardX = (width -  cardWidth) / 2;
+    let cardY = (height - cardHeight) / 2;
+
+    image(assemblyCard, cardX, cardY, cardWidth, cardHeight);
 
     
 }
