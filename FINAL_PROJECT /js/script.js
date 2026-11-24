@@ -18,6 +18,7 @@ let legsX = [];
 let legsY = [];
 
 let assemblyCard;
+let selectedHead = null;
 
 
 
@@ -48,18 +49,18 @@ function setup() {
 
     //loop + array- random starting position 
     for (let i = 0; i < heads.length; i++) {
-        headX.push(random(0, width - 120));
-        headY.push(random(-height, 0))
+        headX.push(randomSideX());
+        headY.push(random(-height, 0));
     }
 
     for (let i = 0; i < chest.length; i++) {
-        chestX.push(random(0, width - 120));
-        chestY.push(random(-height, 0))
+        chestX.push(randomSideX());
+        chestY.push(random(-height, 0));
     }
 
     for (let i = 0; i < legs.length; i++) {
-        legsX.push(random(0, width - 120));
-        legsY.push(random(-height, 0))
+        legsX.push(randomSideX());
+        legsY.push(random(-height, 0));
     }
 
     
@@ -70,12 +71,9 @@ function setup() {
 
 
 function draw() {
-    background('Dodgerblue')
+    background('Dodgerblue');
 
-    //function calls
-    fallingImages(heads, headX, headY);
-    fallingImages(chest, chestX, chestY)
-    fallingImages(legs, legsX, legsY)
+   
 
     let cardWidth = 350;
     let cardHeight = cardWidth * assemblyCard.height / assemblyCard.width; 
@@ -84,6 +82,11 @@ function draw() {
     let cardY = (height - cardHeight) / 2;
 
     image(assemblyCard, cardX, cardY, cardWidth, cardHeight);
+
+     //function calls
+    fallingImages(heads, headX, headY);
+    fallingImages(chest, chestX, chestY);
+    fallingImages(legs, legsX, legsY);
 
     
 }
@@ -112,9 +115,58 @@ function fallingImages(images, positionX, positionY) {
         positionY[i] = -imageHeight;
 
         //here is the randomness: choose a new horizontal position
-        positionX[i] = random(0, width - imageWidth);
+        positionX[i] = randomSideX();
 
     }
+  }
+
+}
+
+
+//place the images on the sides/ outside the canvas
+function randomSideX() {
+
+    let cardWidth = 350;
+    let cardX = (width - cardWidth) / 2;
+
+    let imageWidth = 120;
+
+    if (random(0, 1)< 0.5) {
+
+        //left side 
+        return random(0, cardX - imageWidth);
+
+    }
+
+    else{
+
+        //right side 
+        return random(cardX + cardWidth, width - imageWidth)
+    }
+}
+
+function mousePressed() {
+
+    for (let i = 0; i < heads. length; i++) {
+
+        let imageWidth = 120;
+        let imageHeight = imageWidth * heads[i]. height / heads[i].width;
+
+        if (
+            mouseX > headX[i] &&
+            mouseX < headX[i] + imageWidth &&
+            mouseY > headY[i] &&
+            mouseY < headY[i] + imageHeight
+        ) {
+
+         console.log ("selected head", i);
+         selectedHead = heads[i];
+        
+        }
+
+   
+
+
   }
 
 }
