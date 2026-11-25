@@ -18,7 +18,10 @@ let legsX = [];
 let legsY = [];
 
 let assemblyCard;
+//stores the image that the user catches 
 let selectedHead = null;
+// this will help identify and manipulate the coordinates in the arrays
+let selectedHeadIndex= null; 
 
 
 
@@ -39,9 +42,6 @@ function preload() {
 
     assemblyCard = loadImage("assets/images/canvas/canvas.png");
 }
-
-
-
 
 
 function setup() {
@@ -66,8 +66,6 @@ function setup() {
     
 
 }
-
-
 
 
 function draw() {
@@ -96,12 +94,17 @@ function fallingImages(images, positionX, positionY) {
 
     for(let i = 0; i < images.length; i++) {
 
-    //se the head w nd calculate it proportional height
+    //set the head w nd calculate it proportional height
     let imageWidth = 120;
     let imageHeight = imageWidth * images[i].height / images[i].width;
 
     //display without stretching it 
     image(images[i], positionX[i], positionY[i], imageWidth, imageHeight);
+
+    //if the image is held, skip its falling movement
+    if (images[i] === selectedHead) {
+        continue;
+    }
 
     //keep the head falling until it passes the bottom 
     if (positionY[i] < height) {
@@ -145,13 +148,16 @@ function randomSideX() {
     }
 }
 
+
 function mousePressed() {
 
     for (let i = 0; i < heads. length; i++) {
 
+        //calculate the dimensions of each falling head
         let imageWidth = 120;
         let imageHeight = imageWidth * heads[i]. height / heads[i].width;
 
+        //collision detection between the mouse and the image 
         if (
             mouseX > headX[i] &&
             mouseX < headX[i] + imageWidth &&
@@ -160,7 +166,13 @@ function mousePressed() {
         ) {
 
          console.log ("selected head", i);
+         
          selectedHead = heads[i];
+         selectedHeadIndex = i;
+
+         //stop the loop after catching one image
+         break;
+
         
         }
 
