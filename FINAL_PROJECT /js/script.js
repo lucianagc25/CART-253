@@ -23,9 +23,9 @@ let cardX;
 let cardY;
 
 //stores the image that the user catches 
-let selectedHead = null;
+let selectedImage= null;
 // this will help identify and manipulate the coordinates in the arrays
-let selectedHeadIndex= null; 
+let selectedIndex= null; 
 
 //this is to store the distance between the mouse and the images corner
 let offsetX = 0;
