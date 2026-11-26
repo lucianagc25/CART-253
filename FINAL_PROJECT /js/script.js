@@ -7,7 +7,6 @@ let heads = [];
 let chest = [];
 let legs = [];
 
-//arrays for the falling images
 let headX = [];
 let headY = [];
 
@@ -31,6 +30,9 @@ let selectedHeadIndex= null;
 //this is to store the distance between the mouse and the images corner
 let offsetX = 0;
 let offsetY = 0;
+
+//stores the head that has been succesfully placed inside the card 
+let assembledHead= null;
 
 
 
@@ -89,6 +91,23 @@ function draw() {
     //display the card
     image(assemblyCard, cardX, cardY, cardWidth, cardHeight);
 
+    // display the assembled head only after a successfull drop 
+    if (assembledHead !== null) {
+        
+        //set the width and calculate the proportinal height 
+        let assembledWidth = 120;
+        let assembledHeight = assembledWidht * assembledHead.height / assembledHead.width;
+
+        //center the head horizontally inside the tarot card
+        let assembleX = cardX + (cardWidth - assembledWidth)/ 2;
+
+        //position the head in the upper section of the card 
+        let assembledY = cardY + cardHeight * 0.20; // this positions the head 20% of the way down the tarot card no matter its dimensions 
+
+
+        image(assembledHead, assembledX, assembledY, assembledWidth, assembledHeight)
+    }
+
 
      //function calls
     fallingImages(heads, headX, headY);
@@ -104,6 +123,11 @@ function draw() {
 function fallingImages(images, positionX, positionY) {
 
     for(let i = 0; i < images.length; i++) {
+
+    //skip the assembled image complitely
+    if (images[i] === assembledHead) {
+        continue;
+    }
 
     //set the head w nd calculate it proportional height
     let imageWidth = 120;
@@ -164,6 +188,10 @@ function mousePressed() {
 
     for (let i = 0; i < heads. length; i++) {
 
+        if (heads[i] === assembledHead){
+            continue;
+        }
+
         //calculate the dimensions of each falling head
         let imageWidth = 120;
         let imageHeight = imageWidth * heads[i]. height / heads[i].width;
@@ -223,7 +251,10 @@ function mouseReleased() {
             mouseY < cardY + cardHeight
         ){
 
-            console.log("successful drop")
+            console.log("successful drop");
+
+            //store the selected head as pard of the assembled character
+            assembledHead = selectedHead;
 
         }
 
