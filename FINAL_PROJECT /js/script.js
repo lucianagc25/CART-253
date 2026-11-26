@@ -96,10 +96,10 @@ function draw() {
         
         //set the width and calculate the proportinal height 
         let assembledWidth = 120;
-        let assembledHeight = assembledWidht * assembledHead.height / assembledHead.width;
+        let assembledHeight = assembledWidth * assembledHead.height / assembledHead.width;
 
         //center the head horizontally inside the tarot card
-        let assembleX = cardX + (cardWidth - assembledWidth)/ 2;
+        let assembledX = cardX + (cardWidth - assembledWidth)/ 2;
 
         //position the head in the upper section of the card 
         let assembledY = cardY + cardHeight * 0.20; // this positions the head 20% of the way down the tarot card no matter its dimensions 
