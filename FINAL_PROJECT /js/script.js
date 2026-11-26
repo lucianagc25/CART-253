@@ -18,10 +18,19 @@ let legsX = [];
 let legsY = [];
 
 let assemblyCard;
+let cardWidth = 350;
+let cardHeight;
+let cardX;
+let cardY;
+
 //stores the image that the user catches 
 let selectedHead = null;
 // this will help identify and manipulate the coordinates in the arrays
 let selectedHeadIndex= null; 
+
+//this is to store the distance between the mouse and the images corner
+let offsetX = 0;
+let offsetY = 0;
 
 
 
@@ -71,20 +80,22 @@ function setup() {
 function draw() {
     background('Dodgerblue');
 
-   
+    //calculate the proportinal height of the tarot card 
+    cardHeight = cardWidth * assemblyCard.height / assemblyCard.width;
 
-    let cardWidth = 350;
-    let cardHeight = cardWidth * assemblyCard.height / assemblyCard.width; 
-
-    let cardX = (width -  cardWidth) / 2;
-    let cardY = (height - cardHeight) / 2;
-
+    //position to center the tarot card
+    cardX = (width -  cardWidth) / 2;
+    cardY = (height - cardHeight) / 2;
+    //display the card
     image(assemblyCard, cardX, cardY, cardWidth, cardHeight);
+
 
      //function calls
     fallingImages(heads, headX, headY);
     fallingImages(chest, chestX, chestY);
     fallingImages(legs, legsX, legsY);
+
+
 
     
 }
@@ -170,15 +181,59 @@ function mousePressed() {
          selectedHead = heads[i];
          selectedHeadIndex = i;
 
+         //calculate where inside the image the user is clicking
+         offsetX = mouseX - headX[i];
+         offsetY = mouseY - headY[i];
+
+         console.log("offset X:", offsetX)
+         console.log("offset Y:", offsetY)
+
          //stop the loop after catching one image
          break;
 
         
         }
 
-   
-
-
   }
 
+}
+
+  function mouseDragged() {
+
+    //this checks if the user has caught a head 
+    if (selectedHeadIndex !== null) {
+
+        //update the position of the selected head 
+        // the original distance between the mouse and the image 
+        headX[selectedHeadIndex] = mouseX - offsetX;
+        headY[selectedHeadIndex] = mouseY - offsetY;
+    }
+}
+
+function mouseReleased() {
+
+    //check if the user was holding the head 
+    if (selectedHeadIndex !== null){
+
+        //collision detection between the mouse and the card 
+        if (
+            mouseX > cardX &&
+            mouseX < cardX + cardWidth &&
+            mouseY > cardY &&
+            mouseY < cardY + cardHeight
+        ){
+
+            console.log("successful drop")
+
+        }
+
+        else {
+
+            console.log ("unsuccessful drop")
+        }
+
+        //clear the selection so the image can fall again
+        selectedHead = null;
+        selectedHeadIndex = null;
+    }
 }
