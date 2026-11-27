@@ -26,13 +26,18 @@ let cardY;
 let selectedImage= null;
 // this will help identify and manipulate the coordinates in the arrays
 let selectedIndex= null; 
+//identifies which categorythe caught image belongs to 
+let selectedCategory= null;
 
 //this is to store the distance between the mouse and the images corner
 let offsetX = 0;
 let offsetY = 0;
 
-//stores the head that has been succesfully placed inside the card 
+//stores the body parts that has been succesfully placed inside the card 
 let assembledHead= null;
+let assembledChest= null;
+let assembledLegs= null;
+
 
 
 
@@ -267,4 +272,9 @@ function mouseReleased() {
         selectedHead = null;
         selectedHeadIndex = null;
     }
+}
+
+function catchImage(images, positionX, positionY, assembledImage, category) {
+
+    
 }
