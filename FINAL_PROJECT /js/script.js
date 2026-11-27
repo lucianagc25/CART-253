@@ -115,9 +115,9 @@ function draw() {
 
 
      //function calls
-    fallingImages(heads, headX, headY);
-    fallingImages(chest, chestX, chestY);
-    fallingImages(legs, legsX, legsY);
+    fallingImages(heads, headX, headY, assembledHead);
+    fallingImages(chest, chestX, chestY, assembledChest);
+    fallingImages(legs, legsX, legsY, assembledLegs);
 
 
 
@@ -125,12 +125,12 @@ function draw() {
 }
 
 //"fallingImages()"- one reusable function. displays and moves the images (using parameneters)
-function fallingImages(images, positionX, positionY) {
+function fallingImages(images, positionX, positionY, assembledImage) {
 
     for(let i = 0; i < images.length; i++) {
 
     //skip the assembled image complitely
-    if (images[i] === assembledHead) {
+    if (images[i] === assembledImage) {
         continue;
     }
 
@@ -142,7 +142,7 @@ function fallingImages(images, positionX, positionY) {
     image(images[i], positionX[i], positionY[i], imageWidth, imageHeight);
 
     //if the image is held, skip its falling movement
-    if (images[i] === selectedHead) {
+    if (images[i] === selectedImage) {
         continue;
     }
 
@@ -191,90 +191,124 @@ function randomSideX() {
 
 function mousePressed() {
 
-    for (let i = 0; i < heads. length; i++) {
+    if (catchImage(legs, legsX, legsY, assembledLegs, "legs")){
+        return;
+    }
 
-        if (heads[i] === assembledHead){
-            continue;
-        }
+    if(catchImage(chest, chestX, chestY, assembledChest, "chest")){
+        return;
+    }
 
-        //calculate the dimensions of each falling head
-        let imageWidth = 120;
-        let imageHeight = imageWidth * heads[i]. height / heads[i].width;
+    if(catchImage(heads, headX, headY, assembledHead, "head")){
+        return;
+    }
 
-        //collision detection between the mouse and the image 
-        if (
-            mouseX > headX[i] &&
-            mouseX < headX[i] + imageWidth &&
-            mouseY > headY[i] &&
-            mouseY < headY[i] + imageHeight
-        ) {
-
-         console.log ("selected head", i);
-         
-         selectedHead = heads[i];
-         selectedHeadIndex = i;
-
-         //calculate where inside the image the user is clicking
-         offsetX = mouseX - headX[i];
-         offsetY = mouseY - headY[i];
-
-         console.log("offset X:", offsetX)
-         console.log("offset Y:", offsetY)
-
-         //stop the loop after catching one image
-         break;
-
-        
-        }
-
-  }
+    
+     
 
 }
+
 
   function mouseDragged() {
 
     //this checks if the user has caught a head 
-    if (selectedHeadIndex !== null) {
-
+    if (selectedIndex !== null) {
+    
+    
+        if (selectedCategory === "head"){
         //update the position of the selected head 
         // the original distance between the mouse and the image 
-        headX[selectedHeadIndex] = mouseX - offsetX;
-        headY[selectedHeadIndex] = mouseY - offsetY;
+        headX[selectedIndex] = mouseX - offsetX;
+        headY[selectedIndex] = mouseY - offsetY;
+        }
+
+        else if (selectedCategory === "chest"){
+        //update the position of the selected head 
+        // the original distance between the mouse and the image 
+        chestX[selectedIndex] = mouseX - offsetX;
+        chestY[selectedIndex] = mouseY - offsetY;
+        }
+
+        else if (selectedCategory === "legs"){
+        //update the position of the selected head 
+        // the original distance between the mouse and the image 
+        legsX[selectedIndex] = mouseX - offsetX;
+        legsY[selectedIndex] = mouseY - offsetY;
+        }
+
+        
     }
+
+        
 }
 
 function mouseReleased() {
 
     //check if the user was holding the head 
-    if (selectedHeadIndex !== null){
+    if (selectedIndex !== null){
 
         //collision detection between the mouse and the card 
         if (
+            selectedCategory === "head"&&
             mouseX > cardX &&
             mouseX < cardX + cardWidth &&
             mouseY > cardY &&
             mouseY < cardY + cardHeight
         ){
 
-            console.log("successful drop");
-
             //store the selected head as pard of the assembled character
-            assembledHead = selectedHead;
+            assembledHead = selectedImage;
 
-        }
-
-        else {
-
-            console.log ("unsuccessful drop")
         }
 
         //clear the selection so the image can fall again
-        selectedHead = null;
-        selectedHeadIndex = null;
+        selectedImage = null;
+        selectedIndex = null;
+        selectedCategory = null;
     }
 }
 
 function catchImage(images, positionX, positionY, assembledImage, category) {
 
-    
+    for (let i = 0; i < images. length; i++) {
+
+        if (images[i] === assembledImage){
+            continue;
+        }
+
+        //calculate the dimensions of each falling head
+        let imageWidth = 120;
+        let imageHeight = imageWidth * images[i]. height / images[i].width;
+
+        //collision detection between the mouse and the image 
+        if (
+            mouseX > positionX[i] &&
+            mouseX < positionX[i] + imageWidth &&
+            mouseY > positionY[i] &&
+            mouseY < positionY[i] + imageHeight
+        ) {
+         
+         selectedImage = images[i];
+         selectedIndex = i;
+         selectedCategory = category;
+
+         //calculate where inside the image the user is clicking
+         offsetX = mouseX - positionX[i];
+         offsetY = mouseY - positionY[i];
+
+         console.log("selected Category:", selectedCategory)
+         console.log("selected Index", selectedIndex)
+
+         //indicate that an image was successfully caught 
+         return true;
+
+        
+        }
+
+  }
+
+  return false; 
+
 }
+
+    
